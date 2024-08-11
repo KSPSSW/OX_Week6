@@ -643,6 +643,7 @@ public class GameFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void load() {
+        readPlayer();
         board = new Board(o, x);
         showTable();
         showTurn();
