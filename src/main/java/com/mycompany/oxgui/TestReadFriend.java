@@ -20,18 +20,25 @@ public class TestReadFriend {
     public static void main(String[] args) {
         FileInputStream fis = null;
         try {
-            File file = new File("friend.dat");
+            File file = new File("friends.dat");
             fis = new FileInputStream(file);
             ObjectInputStream ois = new ObjectInputStream(fis);
-            Friend f1 = ois.readObject();
+            Friend f1 = (Friend) ois.readObject();
+            Friend f2 = (Friend) ois.readObject();
+            System.out.println(f1);
+            System.out.println(f2);
+            ois.close();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(TestReadFriend.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("File not found !!!!");
         } catch (IOException ex) {
             Logger.getLogger(TestReadFriend.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TestReadFriend.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
+                if(fis != null){
+                    fis.close();
+                }
                 fis.close();
             } catch (IOException ex) {
                 Logger.getLogger(TestReadFriend.class.getName()).log(Level.SEVERE, null, ex);

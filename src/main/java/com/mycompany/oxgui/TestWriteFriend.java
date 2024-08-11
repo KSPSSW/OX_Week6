@@ -24,7 +24,7 @@ public class TestWriteFriend {
         try {
             Friend f1 = new Friend("Teerapat",19,"08888888888");
             Friend f2 = new Friend("Chanyut",20,"08888888889");
-            file = new File("friend.dat");
+            file = new File("friends.dat");
             fos = new FileOutputStream(file);
             oos = new ObjectOutputStream(fos);
             oos.writeObject(f1);
